@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Alternative - Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div>
+                    <h1>Friendstor</h1>
+                    <p>A simple social media platform</p>
+                </div>
+                <!-- Notification Bell -->
+                <div class="notification-bell">
+                    <button id="notification-btn" class="bell-icon" onclick="toggleNotificationDropdown()">
+                        🔔
+                        <span id="notification-badge" class="notification-badge">0</span>
+                    </button>
+                    <div id="notification-dropdown" class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button onclick="toggleNotificationDropdown()" class="close-btn">✕</button>
+                        </div>
+                        <div id="notification-list" class="notification-items">
+                            <p class="placeholder">No notifications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <button id="tab-home" class="tab-button active" onclick="switchTab('home')">Home</button>
+            <button id="tab-users" class="tab-button" onclick="switchTab('users')">Users</button>
+            <button id="tab-profile" class="tab-button" onclick="switchTab('profile')">My Profile</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Home Tab -->
+            <section id="home-tab" class="tab-content active">
+                <h2>Welcome to Your Feed</h2>
+                
+                <!-- Current User Selection -->
+                <div class="current-user-section">
+                    <label for="current-user-select">View as User:</label>
+                    <select id="current-user-select" onchange="switchUser()">
+                        <option value="">-- Select a user --</option>
+                    </select>
+                </div>
+
+                <!-- Create Post Section -->
+                <div class="create-post-section">
+                    <h3>Create a Post</h3>
+                    <textarea id="post-content" placeholder="What's on your mind? (max 250 characters)" maxlength="250"></textarea>
+                    <div class="char-count">
+                        <span id="char-count">0</span>/250
+                    </div>
+                    <button onclick="createPost()" class="btn btn-primary">Post</button>
+                </div>
+
+                <!-- Feed Section -->
+                <div class="feed-section">
+                    <h3>Your Feed</h3>
+                    <div id="feed" class="feed">
+                        <p class="placeholder">Select a user and follow someone to see posts in your feed</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Tab -->
+            <section id="users-tab" class="tab-content">
+                <h2>Discover Users</h2>
+                <div id="users-list" class="users-grid">
+                    <!-- Users will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Profile Tab -->
+            <section id="profile-tab" class="tab-content">
+                <h2>My Profile</h2>
+                <div class="profile-section">
+                    <div id="profile-info" class="profile-info">
+                        <p class="placeholder">Select a user to view profile</p>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-label">Posts</span>
+                            <span id="posts-count" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Followers</span>
+                            <span id="followers-count" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Following</span>
+                            <span id="following-count" class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div id="my-posts" class="my-posts">
+                        <!-- User's posts will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Twitter Alternative - CS613 OOP Project</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
